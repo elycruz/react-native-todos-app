@@ -9,23 +9,41 @@
     "web": "NODE_OPTIONS=--openssl-legacy-provider expo start --web"
   },
   "dependencies": {
-    "@apollo/server": "^4.3.0",
+    "@expo/next-adapter": "^4.0.13",
     "@expo/webpack-config": "^0.17.2",
     "@types/react": "~18.0.24",
     "@types/react-native": "~0.70.6",
+    "@types/uuid": "9",
     "expo": "~47.0.8",
     "expo-status-bar": "~1.4.2",
     "graphql": "^15.8.0",
+    "graphql-yoga": "^3.1.1",
+    "iron-session": "^6.3.1",
+    "lmdb": "^2.7.3",
+    "next": "^13.0.7",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-web": "~0.18.9"
+    "react-native-web": "~0.18.9",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "dotenv": "^16.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
   "license": "GPL-3.0-only",
-  "private": true
+  "private": true,
+  "description": "Multi-platform, react-native, Todos (example) app.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elycruz/react-native-todos-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/elycruz/react-native-todos-app/issues"
+  },
+  "homepage": "https://github.com/elycruz/react-native-todos-app#readme"
 }

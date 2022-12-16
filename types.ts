@@ -1,3 +1,8 @@
+export interface UserData {
+  id: string,
+  visitCount: number
+}
+
 export interface TodoData {
   id?: number,
   title?: string,
