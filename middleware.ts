@@ -1,17 +1,19 @@
 /**
- * middleware.ts
+ * middleware.ts - Next.js Middleware.
  *
- * Ensures we have valid user sessions for our application routes, additionally creates initial 'user'/'UserData' struct.
+ * This middle ensures we have valid user sessions for app routes, additionally, it creates initial
+ * 'user'/'UserData' object.
  */
 import {NextResponse} from "next/server";
 import type {NextRequest} from "next/server";
 import {getIronSession} from "iron-session/edge";
 import {v4 as uuidv4} from 'uuid';
 import {UserData} from "./types";
+import {IronSession} from "iron-session";
 
 export const sessionConfig = {
-  cookieName: process.env.SESSION_COOKIE_NAME,
-  password: process.env.SESSION_PASSWORD,
+  cookieName: process.env.SESSION_COOKIE_NAME ?? 'react_native_todos_app',
+  password: process.env.SESSION_COOKIE_PASSWORD ?? 'supercalifragilisticexpialidocious',
   ttl: process?.env?.SESSION_COOKIE_TTL ?? 3600,
   // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
   cookieOptions: {
@@ -19,7 +21,7 @@ export const sessionConfig = {
   },
 };
 
-const newSessionData = (): {user: UserData} => ({
+const newSessionData = (): { user: UserData } => ({
   user: {
     id: -1,
     visitCount: 0
@@ -28,7 +30,7 @@ const newSessionData = (): {user: UserData} => ({
 
 export const middleware = async (req: NextRequest) => {
   const res = NextResponse.next(),
-    session = await getIronSession(req, res, sessionConfig),
+    session: IronSession = await getIronSession(req, res, sessionConfig),
     newNextUrl = req.nextUrl.clone(),
     {protocol, host} = newNextUrl;
 
@@ -59,5 +61,5 @@ export const middleware = async (req: NextRequest) => {
 };
 
 export const config = {
-  matcher: ['/api/:path*']
+  matcher: ['/api/:path*'] // @todo add relevant top level app path-names here
 };

@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from "path";
 
 import {open as lmdbOpen} from 'lmdb';
-import * as dotenv from 'dotenv';
+import resolveProcessEnv from "./resolveProcessEnv";
 
-dotenv.config();
+await resolveProcessEnv();
 
 const connectPath = path.resolve(process.cwd(), process.env.LMDB_STORE_PATH);
 
@@ -13,7 +13,7 @@ const connectPath = path.resolve(process.cwd(), process.env.LMDB_STORE_PATH);
 (async () =>
     fs.promises.access(connectPath)
       .catch(() => fs.promises.mkdir(connectPath))
-      .catch((_) => null) // Ignore subsequent "attempting to create dir.." errors
+      .catch(() => {}) // Ignore subsequent "attempting to create dir.." errors
 )();
 
 console.log(`LMDB connecting to "${connectPath}"`);

@@ -2,14 +2,19 @@
 
 Multi-platform, react-native, Todos (example) app.
 
-## Development
+## Running the App/Development
 
 ### Pre-requisites
 
-The following environment variables are required for the app (can be auto-loaded by adding an '.env' file with the variables, and their values, in it):
+The following environment variables are required for the app (can be auto-loaded (in dev environments) via '.env')):
 
 ```text
-@todo
+SESSION_COOKIE_TLS=3600
+SESSION_COOKIE_PASSWORD=supercalifragilisticexpialidocious
+SESSION_COOKIE_NAME=react_native_todos_app
+LMDB_TODOS_STORE_PATH=./.local-todos.lmdb
+LMDB_TERMS_STORE_PATH=./.local-terms.lmdb
+LMDB_TERM_TAXONOMIES_STORE_PATH=./.local-term-taxonomies.lmdb
 ```
 
 ## Todos
