@@ -1,12 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import {StyleSheet, Text, View} from 'react-native';
+import {Appbar, MD2LightTheme, Provider as PaperProvider} from 'react-native-paper';
+
+import {XExampleForm} from "./features/example-form/XExampleForm";
+
+const theme = {
+  ...MD2LightTheme
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={theme}>
+      <View style={styles.container}>
+        <Appbar style={{width: 100}}>
+          <Text>App</Text>
+        </Appbar>
+
+        <XExampleForm/>
+
+        <StatusBar style="auto"/>
+      </View>
+    </PaperProvider>
   );
 }
 
