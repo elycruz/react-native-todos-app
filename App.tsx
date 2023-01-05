@@ -1,5 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Appbar, MD2LightTheme, Provider as PaperProvider} from 'react-native-paper';
 
 import {XExampleForm} from "./features/example-form/XExampleForm";
@@ -12,11 +12,13 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
-        <Appbar style={{width: 100}}>
-          <Text>App</Text>
-        </Appbar>
+        <Appbar.Header style={styles.appBar}>
+          <Appbar.Content title="Example App"/>
+        </Appbar.Header>
 
-        <XExampleForm/>
+        <View style={{padding: 13}}>
+          <XExampleForm/>
+        </View>
 
         <StatusBar style="auto"/>
       </View>
@@ -28,7 +30,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    minWidth: 320
   },
+  appBar: {
+    minWidth: 320,
+    padding: 13
+  }
 });

@@ -1,8 +1,11 @@
-import {Text, View} from "react-native";
+import {View} from "react-native";
 
-export function XField({children}) {
-  return <View>
-    <Text>Field</Text>
+export const xFieldStyles = {
+  marginTop: 13
+};
+
+export function XField({children, styles = xFieldStyles}) {
+  return <View styles={styles}>
     {children}
   </View>
 }
