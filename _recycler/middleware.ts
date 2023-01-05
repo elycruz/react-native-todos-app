@@ -8,7 +8,7 @@ import {NextResponse} from "next/server";
 import type {NextRequest} from "next/server";
 import {getIronSession} from "iron-session/edge";
 import {v4 as uuidv4} from 'uuid';
-import {UserData} from "./types";
+import {UserData} from "../types";
 import {IronSession} from "iron-session";
 
 export const sessionConfig = {

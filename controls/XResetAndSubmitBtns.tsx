@@ -4,7 +4,7 @@ import {Button} from "react-native-paper";
 export function XResetAndSubmitBtns({resetForm, submitForm, isFormValid, style, children}) {
   return (<View style={{flexDirection: 'row', ...style}}>
       <Button
-        mode="contained"
+        mode="outlined"
         onPress={resetForm}
         title="Reset"
         accessibilityLabel="Reset Form"
@@ -14,8 +14,7 @@ export function XResetAndSubmitBtns({resetForm, submitForm, isFormValid, style, 
         mode="contained"
         onPress={submitForm}
         title="Submit"
-        accessibilityLabel="Reset Form"
-        disabled={!isFormValid}
+        accessibilityLabel="Submit Form"
       >Submit</Button>
       {children}
     </View>
